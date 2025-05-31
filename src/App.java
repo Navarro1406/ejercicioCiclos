@@ -20,7 +20,37 @@ public class App {
                 String opcion = sc.nextLine();
                 switch (opcion) {
                     case "1":
-                            System.out.println("Hola profe");
+                        int interruptor = 1;
+                        int contadorEstudiantes = 0;
+                        int ganaron = 0;
+                        while (interruptor == 1){
+                            double nota =0;
+                            double notaFinal =0;
+                            double sumaNotas =0;
+                            for (int i = 1; i <=3; i++ ){
+
+                                do {
+                                    System.out.println("Ingresando la nota: " + i);
+                                    nota = sc.nextDouble();
+                                }while (nota < 0 || nota > 5);
+                                sumaNotas = sumaNotas + nota;
+                            }
+                            notaFinal = sumaNotas / 3;
+                            if (notaFinal >= 3) {
+                                ganaron++;
+                            }
+                            System.out.println("la nota final es: " + notaFinal);
+                            contadorEstudiantes ++;
+                            System.out.println("¿Desea ingresar la nota de otro estudiante? Si/No");
+                            opcion = sc.next();
+                            if (opcion.equals("No")){
+                                interruptor = 0;
+                            }
+
+                        }
+                        System.out.println("Resultado de la materia Lógica de programación: ");
+                        System.out.println("Cantidad de estudiantes que ganaron: " + ganaron);
+                        System.out.println("Cantidad de estudiantes que perdieron: " + (ganaron - contadorEstudiantes));
                         break;
                     case "2":
                             System.out.println("Hola estudiante");
